@@ -3,7 +3,7 @@
 
 # Visual GDB
 *.vgdbsettings
-[Cc]ode[Dd]/
+[Cc]ode[Dd][Bb]/
 *-build/
 [Vv]isual[Gg][Dd][Bb][Cc]ache/
 
