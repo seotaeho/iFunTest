@@ -1,0 +1,37 @@
+# Systemd service configuration for my_project
+[Unit]
+Description=iFun Engine game - my_project
+After=syslog.target network-online.target
+
+[Install]
+WantedBy=multi-user.target
+
+[Service]
+# If this limit is not enough, you SHOULD look after
+# "net.netfilter.nf_conntrack_tcp_timeout_time_wait" (using sysctl)
+LimitNOFILE=999999
+
+# It is strongly recommended that one should use uid:gid other than the root
+# NOTE: Please update User=, Group=, and ExecStartPre=
+User=root
+Group=root
+
+# Makes the daemon automatically restart
+Type=simple
+Restart=on-failure
+RestartSec=5s
+
+# create directories, and change permissions (with root privileges)
+PermissionsStartOnly=true
+ExecStartPre=/usr/bin/mkdir -p /var/log/funapi/my_project/glog \
+  /var/log/funapi/my_project/activity \
+  /var/log/funapi/my_project/counter \
+  /var/crash/funapi/my_project
+# NOTE: change root:root to service's uid:gid
+ExecStartPre=/usr/bin/chown -R root:root /var/log/funapi/my_project/glog \
+  /var/log/funapi/my_project/activity \
+  /var/log/funapi/my_project/counter \
+  /var/crash/funapi/my_project
+
+EnvironmentFile=/etc/default/my_project
+ExecStart=/usr/bin/my_project-launcher

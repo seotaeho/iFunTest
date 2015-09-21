@@ -1,0 +1,6 @@
+{
+  "Album": {
+    "AlbumID": "String KEY",
+    "AlbumTitle": "String"
+  }
+}

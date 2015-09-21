@@ -1,0 +1,22 @@
+{
+  "User": {
+    "Id": "String KEY",
+    "MyCharacter": "Character"
+  },
+    "Character": {
+        "Name": "String KEY",
+        "Exp": "Integer",
+        "Level": "Integer",
+        "Hp": "Integer",
+        "Mp": "Integer",
+        "durability":  "Integer"
+    },
+    "Pet": {
+        "PetLife": "Integer",
+        "PetCode": "Integer"
+    },
+    "Music2": {
+    "MusicID": "String KEY",
+    "MusicTitle": "String"
+  }
+}
